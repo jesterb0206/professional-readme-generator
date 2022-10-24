@@ -73,3 +73,12 @@ function renderLicenseSection(selectedLicense) {
     return `## License `;
   }
 }
+
+// Generates markdown for README
+function generateMarkdown(selectedLicense) {
+  return `${renderLicenseSection(selectedLicense)}
+  ${renderLicenseBadge(selectedLicense)}
+  ${renderLicenseLink(selectedLicense)}`;
+}
+
+module.exports = generateMarkdown;
