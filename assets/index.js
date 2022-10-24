@@ -89,7 +89,7 @@ const questions = [
   {
     type: "input",
     message: "What is your GitHub username (no '@' needed)?",
-    name: "username",
+    name: "github",
     validate: function (answer) {
       if (answer.length < 1) {
         return console.log("Not a valid answer. Please try again!");
@@ -132,11 +132,44 @@ const questions = [
   },
 ];
 
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+// Function to write README file
+function writeReadMe() {
+  inquirer.prompt(questions).then((responses) => {
+    console.log(responses);
+    const myMarkdown = markdown(responses.license);
+    fs.writeFile(
+      "newREADME.md",
+      `# ${responses.title}
 
-// TODO: Create a function to initialize app
-function init() {}
+            ## Description
+            ${responses.description}
+            ## Table of Contents
+            1. [Installation](#installation) 
+            2. [Usage](#usage)
+            3. [Contributing](#contributing)
+            4. [Tests](#tests)
+            5. [Questions](#questions)
+            ## Installation 
+            ${responses.installation}
+            ## Usage 
+            ${responses.usage}
+            ## Contributing 
+            ${responses.contributing}
+            ## Tests 
+            ${responses.tests}
+            ## Questions
+            ### GitHub
+            [GitHub](https://www.github.com/${responses.github}) 
+            ### Email
+            ${responses.email}
+            ${myMarkdown}`,
+      function (err) {
+        if (err) throw err;
+        console.log("README created!");
+      }
+    );
+  });
+}
 
 // Function call to initialize app
-init();
+writeReadMe();
