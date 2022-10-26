@@ -138,7 +138,7 @@ function writeReadMe() {
     console.log(responses);
     const myMarkdown = markdown(responses.license);
     fs.writeFile(
-      "newREADME.md",
+      "exampleREADME.md",
       `# ${responses.title}
 
 ${myMarkdown}
