@@ -70,7 +70,8 @@ function renderLicenseSection(selectedLicense) {
   if (selectedLicense == "none") {
     return ``;
   } else {
-    return `## License `;
+    return `## License
+`;
   }
 }
 
