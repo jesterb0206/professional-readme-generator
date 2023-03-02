@@ -47,4 +47,4 @@ If you have any additional questions, you can reach me at:
 
 ### Email
 
-jesterb@seattleu.edu
+bradleyjester0@gmail.com
